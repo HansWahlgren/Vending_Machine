@@ -33,7 +33,7 @@ namespace XUnitTest_Vending_Machine
             int id1 = IdSequencer.NextProductId();
             int id2 = IdSequencer.NextProductId();
             int id3 = IdSequencer.NextProductId();
-            string expectedInfo = "Product Id: 3\nNo product avaliable\nPrice: 0\nCalories: 0\nAllergens: none";
+            string expectedInfo = "Product Id: 3\nNo product avaliable\nPrice: 0\nCalories: 0\nAllergens: None";
 
             //Act
             new Product(id1);

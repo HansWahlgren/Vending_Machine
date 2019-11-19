@@ -13,22 +13,22 @@ namespace Vending_Machine.Models
         protected string allergens;
         protected string name;
 
-        public Product(int productId)
+        public Product(/*int productId*/)
         {
-            this.productId = productId;
+            //this.productId = productId;
             price = 0;
             calories = 0;
             allergens = "None";
             name = "No product avaliable";
         }
 
-        public string ShowInfo()
+        public virtual string ShowInfo()
         {
             //Fixa för ny info
             return ($"Product Id: {productId.ToString()}\n{name}\nPrice: {price.ToString()}\nCalories: {calories.ToString()}\nAllergens: {allergens}");
         }
 
-        public void Consume()
+        public virtual void Consume()
         {
             //Fixa för olika typer
             Console.WriteLine("You have consumed the product");
