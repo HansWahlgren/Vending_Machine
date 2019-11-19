@@ -13,5 +13,16 @@ namespace Vending_Machine.Models
         {
             foodSize = "0 g";
         }
+
+        public override string ShowInfo()
+        {
+            return ($"Product Id: {productId.ToString()}\n{name}\nPrice: {price.ToString()}kr\nSize: {foodSize}" +
+                $"\nCalories: {calories.ToString()}\n{warning}");
+        }
+
+        public override void Consume()
+        {
+            Console.WriteLine("With great hunger you devour your meal fast");
+        }
     }
 }

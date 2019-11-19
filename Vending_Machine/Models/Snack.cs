@@ -12,5 +12,16 @@ namespace Vending_Machine.Models
         {
             bagSize = "0 g";
         }
+
+        public override string ShowInfo()
+        {
+            return ($"Product Id: {productId.ToString()}\n{name}\nPrice: {price.ToString()}kr\nSize: {bagSize}" +
+                $"\nCalories: {calories.ToString()}\n{warning}");
+        }
+
+        public override void Consume()
+        {
+            Console.WriteLine("You quietly eat up everything in your bag of snacks");
+        }
     }
 }

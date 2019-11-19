@@ -8,17 +8,21 @@ namespace Vending_Machine.Models
     public class Drink : Product
     {
         protected string bottleSize;
-        
+
         public Drink() : base()
         {
             bottleSize = "0 ml";
         }
 
-        //public override string ShowInfo()
-        //{
-        //    //Fixa för ny info
-        //    return ($"Product Id: {productId.ToString()}\n{name}\nPrice: {price.ToString()}\nCalories: {calories.ToString()}\nAllergens: {allergens}");
-        //}
+        public override string ShowInfo()
+        {
+            return ($"Product Id: {productId.ToString()}\n{name}\nPrice: {price.ToString()}kr\nSize: {bottleSize}" +
+                $"\nCalories: {calories.ToString()}\n{warning}");
+        }
 
+        public override void Consume()
+        {
+            Console.WriteLine("You quickly drink up the cold refreshing bottle");
+        }
     }
 }

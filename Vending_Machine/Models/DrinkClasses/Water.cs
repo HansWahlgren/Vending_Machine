@@ -4,7 +4,16 @@ using System.Text;
 
 namespace Vending_Machine.Models.DrinkClasses
 {
-    class Water
+    public class Water : Drink
     {
+        public Water(int productId) : base()
+        {
+            base.productId = productId;
+            base.name = "Water";
+            base.price = 10;
+            base.bottleSize = "33cl";
+            base.calories = 50;
+            base.warning = "";
+        }
     }
 }

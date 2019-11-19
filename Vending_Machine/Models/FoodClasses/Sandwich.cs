@@ -4,7 +4,16 @@ using System.Text;
 
 namespace Vending_Machine.Models.FoodClasses
 {
-    class Sandwich
+    public class Sandwich : Food
     {
+        public Sandwich(int productId) : base()
+        {
+            base.productId = productId;
+            base.name = "Sandwich";
+            base.price = 30;
+            base.foodSize = "50g";
+            base.calories = 250;
+            base.warning = "Gluten";
+        }
     }
 }
