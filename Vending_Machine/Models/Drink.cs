@@ -20,9 +20,9 @@ namespace Vending_Machine.Models
                 $"\nCalories: {calories.ToString()}\n{warning}");
         }
 
-        public override void Consume()
+        public override string Consume()
         {
-            Console.WriteLine("You quickly drink up the cold refreshing bottle");
+            return ("You quickly drink up the cold refreshing bottle");
         }
     }
 }

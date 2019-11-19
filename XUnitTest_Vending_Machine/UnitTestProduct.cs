@@ -18,14 +18,14 @@ namespace XUnitTest_Vending_Machine
             int id3 = IdSequencer.NextProductId();
 
             //Act
-            Cola product1 = new Cola(id1);
-            Burger product2 = new Burger(id2);
-            Candy product3 = new Candy(id3);
+            Cola cocaCola = new Cola(id1);
+            Burger hamburger = new Burger(id2);
+            Candy candybag = new Candy(id3);
 
             //Assert
-            Assert.Equal(id1, product1.productId);
-            Assert.Equal(id2, product2.productId);
-            Assert.Equal(id3, product3.productId);
+            Assert.Equal(id1, cocaCola.productId);
+            Assert.Equal(id2, hamburger.productId);
+            Assert.Equal(id3, candybag.productId);
         }
 
         [Fact]
@@ -35,36 +35,45 @@ namespace XUnitTest_Vending_Machine
             int id1 = IdSequencer.NextProductId();
             int id2 = IdSequencer.NextProductId();
             int id3 = IdSequencer.NextProductId();
+            Juice product1 = new Juice(id1);
+            Pizza product2 = new Pizza(id2);
+            Chips product3 = new Chips(id3);
             string expectedInfo1 = $"Product Id: {id1}\nJuice\nPrice: 20kr\nSize: 25cl\nCalories: 150\nContains fruit meat";
             string expectedInfo2 = $"Product Id: {id2}\nPizza\nPrice: 35kr\nSize: 70g\nCalories: 450\nContains meat, Gluten";
             string expectedInfo3 = $"Product Id: {id3}\nChips bag\nPrice: 25kr\nSize: 100g\nCalories: 600\n";
 
             //Act
-            Juice product1 = new Juice(id1);
-            Pizza product2 = new Pizza(id2);
-            Chips product3 = new Chips(id3);
+            string juiceInformation = product1.ShowInfo();
+            string pizzaInformation = product2.ShowInfo();
+            string chipsInformation = product3.ShowInfo();
 
             //Assert
-            Assert.Equal(expectedInfo1, product1.ShowInfo());
-            Assert.Equal(expectedInfo2, product2.ShowInfo());
-            Assert.Equal(expectedInfo2, product3.ShowInfo());
+            Assert.Equal(expectedInfo1, juiceInformation);
+            Assert.Equal(expectedInfo2, pizzaInformation);
+            Assert.Equal(expectedInfo3, chipsInformation);
         }
 
-        //[Fact]
-        //public void ShowConsumeOk()
-        //{
-        //    //Arrange
-        //    int id = IdSequencer.NextProductId();
-        //    string expectedInfo = $"Product Id: {id}\nChips bag\nPrice: 25kr\nSize: 100\nCalories: 600\n";
+        [Fact]
+        public void ShowConsumeOk()
+        {
+            //Arrange
+            string expectedmessage1 = "You quickly drink up the cold refreshing bottle";
+            string expectedmessage2 = "With great hunger you devour your meal fast";
+            string expectedmessage3 = "You quietly eat up everything in your bag of snacks";
+            Water product1 = new Water(IdSequencer.NextProductId());
+            Sandwich product2 = new Sandwich(IdSequencer.NextProductId());
+            Peanuts product3 = new Peanuts(IdSequencer.NextProductId());
 
-        //    //Act
-        //    new Juice(IdSequencer.NextProductId());
-        //    new Pizza(IdSequencer.NextProductId());
-        //    Chips product3 = new Chips(id);
+            //Act
+            string drinkConsume = product1.Consume();
+            string eatFoodConsume = product2.Consume();
+            string eatSnackConsume = product3.Consume();
 
-        //    //Assert
-        //    Assert.Equal(expectedInfo, product3.ShowInfo());
-        //}
+            //Assert
+            Assert.Equal(expectedmessage1, drinkConsume);
+            Assert.Equal(expectedmessage2, eatFoodConsume);
+            Assert.Equal(expectedmessage3, eatSnackConsume);
+        }
     }
 }
 

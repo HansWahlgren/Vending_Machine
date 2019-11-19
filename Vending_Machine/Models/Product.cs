@@ -24,6 +24,6 @@ namespace Vending_Machine.Models
 
         public abstract string ShowInfo();
 
-        public abstract void Consume();
+        public abstract string Consume();
     }
 }

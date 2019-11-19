@@ -19,9 +19,9 @@ namespace Vending_Machine.Models
                 $"\nCalories: {calories.ToString()}\n{warning}");
         }
 
-        public override void Consume()
+        public override string Consume()
         {
-            Console.WriteLine("You quietly eat up everything in your bag of snacks");
+            return ("You quietly eat up everything in your bag of snacks");
         }
     }
 }
