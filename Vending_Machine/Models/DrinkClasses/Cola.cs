@@ -9,7 +9,7 @@ namespace Vending_Machine.Models.DrinkClasses
     {
         public Cola(int productId) : base()
         {
-            base.productId = productId;
+            base.ProductId = productId;
             base.name = "Coca Cola";
             base.price = 22;
             base.bottleSize = "50cl";

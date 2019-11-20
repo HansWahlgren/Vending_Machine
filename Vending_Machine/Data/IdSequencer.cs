@@ -12,5 +12,9 @@ namespace Vending_Machine.Data
         {
             return ++productId;
         }
+        public static void Reset()
+        {
+            productId = 0;
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace Vending_Machine.Models
 
         public override string ShowInfo()
         {
-            return ($"Product Id: {productId.ToString()}\n{name}\nPrice: {price.ToString()}kr\nSize: {foodSize}" +
+            return ($"Product Id: {ProductId.ToString()}\n{name}\nPrice: {price.ToString()}kr\nSize: {foodSize}" +
                 $"\nCalories: {calories.ToString()}\n{warning}");
         }
 

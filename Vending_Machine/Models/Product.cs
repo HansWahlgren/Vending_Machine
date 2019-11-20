@@ -7,15 +7,15 @@ namespace Vending_Machine.Models
 {
     public abstract class Product
     {
-        public int productId;
         protected int price;
         protected int calories;
         protected string name;
         protected string warning;
+        public int ProductId { get; protected set; }
 
         public Product()
         {
-            this.productId = 0;
+            ProductId = 0;
             price = 0;
             calories = 0;
             warning = "None";

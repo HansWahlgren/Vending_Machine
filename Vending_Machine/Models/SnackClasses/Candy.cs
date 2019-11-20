@@ -8,7 +8,7 @@ namespace Vending_Machine.Models.SnackClasses
     {
         public Candy(int productId) : base()
         {
-            base.productId = productId;
+            base.ProductId = productId;
             base.name = "Mixed Candy bag";
             base.price = 30;
             base.bagSize = "150g";

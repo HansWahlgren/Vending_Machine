@@ -23,9 +23,9 @@ namespace XUnitTest_Vending_Machine
             Candy candybag = new Candy(id3);
 
             //Assert
-            Assert.Equal(id1, cocaCola.productId);
-            Assert.Equal(id2, hamburger.productId);
-            Assert.Equal(id3, candybag.productId);
+            Assert.Equal(id1, cocaCola.ProductId);
+            Assert.Equal(id2, hamburger.ProductId);
+            Assert.Equal(id3, candybag.ProductId);
         }
 
         [Fact]
@@ -57,9 +57,9 @@ namespace XUnitTest_Vending_Machine
         public void ShowConsumeOk()
         {
             //Arrange
-            string expectedmessage1 = "You quickly drink up the cold refreshing bottle";
-            string expectedmessage2 = "With great hunger you devour your meal fast";
-            string expectedmessage3 = "You quietly eat up everything in your bag of snacks";
+            string expectedMessage1 = "You quickly drink up the cold refreshing bottle";
+            string expectedMessage2 = "With great hunger you devour your meal fast";
+            string expectedMessage3 = "You quietly eat up everything in your bag of snacks";
             Water product1 = new Water(IdSequencer.NextProductId());
             Sandwich product2 = new Sandwich(IdSequencer.NextProductId());
             Peanuts product3 = new Peanuts(IdSequencer.NextProductId());
@@ -70,9 +70,9 @@ namespace XUnitTest_Vending_Machine
             string eatSnackConsume = product3.Consume();
 
             //Assert
-            Assert.Equal(expectedmessage1, drinkConsume);
-            Assert.Equal(expectedmessage2, eatFoodConsume);
-            Assert.Equal(expectedmessage3, eatSnackConsume);
+            Assert.Equal(expectedMessage1, drinkConsume);
+            Assert.Equal(expectedMessage2, eatFoodConsume);
+            Assert.Equal(expectedMessage3, eatSnackConsume);
         }
     }
 }

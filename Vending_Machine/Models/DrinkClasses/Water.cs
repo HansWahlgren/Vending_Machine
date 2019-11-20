@@ -8,7 +8,7 @@ namespace Vending_Machine.Models.DrinkClasses
     {
         public Water(int productId) : base()
         {
-            base.productId = productId;
+            base.ProductId = productId;
             base.name = "Water";
             base.price = 10;
             base.bottleSize = "33cl";

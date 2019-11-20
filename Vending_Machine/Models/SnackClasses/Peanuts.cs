@@ -8,7 +8,7 @@ namespace Vending_Machine.Models.SnackClasses
     {
         public Peanuts(int productId) : base()
         {
-            base.productId = productId;
+            base.ProductId = productId;
             base.name = "Peanuts bag";
             base.price = 35;
             base.bagSize = "200g";

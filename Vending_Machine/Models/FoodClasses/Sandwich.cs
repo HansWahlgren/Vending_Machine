@@ -8,7 +8,7 @@ namespace Vending_Machine.Models.FoodClasses
     {
         public Sandwich(int productId) : base()
         {
-            base.productId = productId;
+            base.ProductId = productId;
             base.name = "Sandwich";
             base.price = 30;
             base.foodSize = "50g";
