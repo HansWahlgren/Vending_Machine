@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 using Vending_Machine.Data;
 using Vending_Machine.Models.DrinkClasses;
@@ -26,6 +25,9 @@ namespace XUnitTest_Vending_Machine
             Assert.Equal(id1, cocaCola.ProductId);
             Assert.Equal(id2, hamburger.ProductId);
             Assert.Equal(id3, candybag.ProductId);
+            Assert.Equal("Coca Cola", cocaCola.Name);
+            Assert.Equal("Hamburger", hamburger.Name);
+            Assert.Equal("Mixed Candy bag", candybag.Name);
         }
 
         [Fact]

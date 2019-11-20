@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Vending_Machine.Models.DrinkClasses
+﻿namespace Vending_Machine.Models.DrinkClasses
 {
     public class Juice : Drink
     {
         public Juice(int productId) : base()
         {
             base.ProductId = productId;
-            base.name = "Juice";
+            base.Name = "Juice";
             base.price = 20;
             base.bottleSize = "25cl";
             base.calories = 150;

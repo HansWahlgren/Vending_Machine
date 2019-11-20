@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Vending_Machine.Data;
-
-namespace Vending_Machine.Models
+﻿namespace Vending_Machine.Models
 {
     public abstract class Product
     {
         protected int price;
         protected int calories;
-        protected string name;
         protected string warning;
         public int ProductId { get; protected set; }
+        public string Name { get; protected set; }
 
         public Product()
         {
@@ -19,7 +14,7 @@ namespace Vending_Machine.Models
             price = 0;
             calories = 0;
             warning = "None";
-            name = "No product avaliable";
+            Name = "No product avaliable";
         }
 
         public abstract string ShowInfo();

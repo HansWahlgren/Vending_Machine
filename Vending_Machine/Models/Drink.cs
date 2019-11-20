@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Vending_Machine.Data;
-
-namespace Vending_Machine.Models
+﻿namespace Vending_Machine.Models
 {
     public class Drink : Product
     {
@@ -16,7 +11,7 @@ namespace Vending_Machine.Models
 
         public override string ShowInfo()
         {
-            return ($"Product Id: {ProductId.ToString()}\n{name}\nPrice: {price.ToString()}kr\nSize: {bottleSize}" +
+            return ($"Product Id: {ProductId.ToString()}\n{Name}\nPrice: {price.ToString()}kr\nSize: {bottleSize}" +
                 $"\nCalories: {calories.ToString()}\n{warning}");
         }
 
