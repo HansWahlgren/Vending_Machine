@@ -67,7 +67,7 @@ namespace Vending_Machine.Data
             List<String> productsNameList = new List<String>();
             foreach (var product in productArray)
             {
-                productsNameList.Add($"Number: {product.ProductId} {product.Name}");
+                productsNameList.Add($"Number: {product.ProductId} {product.Name}\n");
             }
             string[] productsName = productsNameList.ToArray();
 

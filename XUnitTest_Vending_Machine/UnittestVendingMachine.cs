@@ -47,7 +47,7 @@ namespace XUnitTest_Vending_Machine
             //Arrange
             string expectedName1 = "Sandwich";
             string expectedName2 = "Chips bag";
-            string expectedInfo = $"Product Nr: 2\nJuice\nPrice: 20kr\nSize: 25cl\nCalories: 150\nContains fruit meat";
+            string expectedInfo = "Product Nr: 2\nJuice\nPrice: 20kr\nSize: 25cl\nCalories: 150\nContains fruit meat";
 
             //Act
             Product product1 = VendingMachine.RequestProduct(6);
@@ -60,8 +60,8 @@ namespace XUnitTest_Vending_Machine
             Assert.Equal(expectedName2, product2.Name);
             Assert.Equal(expectedInfo, productInformation);
         }
-        [Fact]
 
+        [Fact]
         public void EndSessionOk()
         {
             //Arrange
@@ -97,6 +97,47 @@ namespace XUnitTest_Vending_Machine
             Assert.Equal(expectedChangeToCustomer, changeToCustomer);
         }
 
+        [Fact]
+        public void GetDescriptionOk()
+        {
+            //Arrange
+            string expectedInfo1 = "Product Nr: 2\nJuice\nPrice: 20kr\nSize: 25cl\nCalories: 150\nContains fruit meat";
+            string expectedInfo2 = "Product Nr: 5\nPizza\nPrice: 35kr\nSize: 70g\nCalories: 450\nContains meat, Gluten";
+            string expectedInfo3 = "Product Nr: 8\nChips bag\nPrice: 25kr\nSize: 100g\nCalories: 600\n";
 
+            //Act
+            string productInformation1 = VendingMachine.GetDescription(2);
+            string productInformation2 = VendingMachine.GetDescription(5);
+            string productInformation3 = VendingMachine.GetDescription(8);
+
+            //Assert
+            Assert.Equal(expectedInfo1, productInformation1);
+            Assert.Equal(expectedInfo2, productInformation2);
+            Assert.Equal(expectedInfo3, productInformation3);
+        }
+
+        [Fact]
+        public void GetProductsOk()
+        {
+            //Arrange
+            string[] expectedproductsName = 
+            {
+                "Number: 1 Coca Cola\n",
+                "Number: 2 Juice\n",
+                "Number: 3 Water\n",
+                "Number: 4 Hamburger\n",
+                "Number: 5 Pizza\n",
+                "Number: 6 Sandwich\n",
+                "Number: 7 Mixed Candy bag\n",
+                "Number: 8 Chips bag\n",
+                "Number: 9 Peanuts bag\n",
+            };
+
+            //Act
+            string[] productsName = VendingMachine.GetProducts();
+
+            //Assert
+            Assert.Equal(expectedproductsName, productsName);
+        }
     }
 }
