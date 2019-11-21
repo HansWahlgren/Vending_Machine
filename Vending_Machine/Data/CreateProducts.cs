@@ -28,12 +28,12 @@ namespace Vending_Machine.Data
             //List<Product> productList = new List<Product>();
             //List<string> productNameList = new List<string>
             //{
-            //    Cola,"Juice","Water","Burger","Pizza","Sandwich","Candy","Chips","Peanuts"
+            //    "Cola","Juice","Water","Burger","Pizza","Sandwich","Candy","Chips","Peanuts"
             //};
 
             //foreach (var item in productNameList)
             //{
-            //    productList.Add(new item (IdSequencer.NextProductId()));
+            //    productList.Add(new item(IdSequencer.NextProductId()));
             //}
 
             Product[] productArray = productList.ToArray();

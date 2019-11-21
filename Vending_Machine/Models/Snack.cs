@@ -10,7 +10,7 @@
 
         public override string ShowInfo()
         {
-            return ($"Product Id: {ProductId.ToString()}\n{Name}\nPrice: {price.ToString()}kr\nSize: {bagSize}" +
+            return ($"Product Nr: {ProductId.ToString()}\n{Name}\nPrice: {price.ToString()}kr\nSize: {bagSize}" +
                 $"\nCalories: {calories.ToString()}\n{warning}");
         }
 

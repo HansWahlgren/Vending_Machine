@@ -6,37 +6,30 @@ namespace Vending_Machine.Data
 {
     interface IVendingMachine
     {
-        private static int[] depositPool = new int[0];
-        public static void AddCurrency(int denominationAmount) 
-        { 
+        public void AddCurrency(int denominationAmount) {   }
 
-        }
-
-        public static Product RequestProduct(int productNumber) 
+        public object RequestProduct(int productNumber)
         {
-            Product placeHolder = new Cola(0);
-            return placeHolder;
+            return new object();
         }
 
         public int[] EndSession() 
         {
-            int[] placeHolder = new int[0];
-            return placeHolder;
+            return new int[] { };
         }
-        public string GetDescription(int productNumber) 
+        public static string GetDescription(int productNumber)
         {
-            return "Placeholder";
-        }
-
-        public int GetBalance() 
-        {
-            return depositPool.Sum();
+            return "";
         }
 
-        public string[] GetProducts() 
+        public static int GetBalance()
         {
-            string[] placeHolder = new string[0];
-            return placeHolder;
+            return new int();
+        }
+
+        public static string[] GetProducts() 
+        {
+            return new string[] { };
         }
     }
 }

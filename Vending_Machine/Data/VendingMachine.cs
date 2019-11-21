@@ -12,7 +12,7 @@ namespace Vending_Machine.Data
 {
     public class VendingMachine : IVendingMachine
     {
-        private static Product[] productArray = CreateProducts.CreateProductArray();
+        private static readonly Product[] productArray = CreateProducts.CreateProductArray();
         private static int[] depositPool = new int[0];
 
         public static void AddCurrency(int denominationAmount)
@@ -22,19 +22,39 @@ namespace Vending_Machine.Data
 
         public static Product RequestProduct(int productNumber)
         {
-            Product placeHolder = new Cola(0);
-            return placeHolder;
+            int productArrayId = 0;
+            for (int i = 0; i < productArray.Length; i++)
+            {
+                if (productArray[i].ProductId == productNumber)
+                {
+                    productArrayId = i;
+                }
+            }
+            return productArray[productArrayId];
+            //return productArray[productNumber-1];
         }
 
         public static int[] EndSession()
         {
-            int[] placeHolder = new int[0];
-            return placeHolder;
+            int[] changeToCustomer = depositPool;
+
+            int[] emptydepositPool = new int[0];
+            depositPool = emptydepositPool;
+
+            return changeToCustomer;
         }
 
         public static string GetDescription(int productNumber)
         {
-            return "Placeholder";
+            string productInformation = "";
+            foreach (var product in productArray)
+            {
+                if (product.ProductId == productNumber)
+                {
+                    productInformation = product.ShowInfo();
+                }
+            }
+            return productInformation;
         }
 
         public static int GetBalance()
@@ -44,8 +64,14 @@ namespace Vending_Machine.Data
 
         public static string[] GetProducts()
         {
-            string[] placeHolder = new string[0];
-            return placeHolder;
+            List<String> productsNameList = new List<String>();
+            foreach (var product in productArray)
+            {
+                productsNameList.Add($"Number: {product.ProductId} {product.Name}");
+            }
+            string[] productsName = productsNameList.ToArray();
+
+            return productsName;
         }
     }
 }
