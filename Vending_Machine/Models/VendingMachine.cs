@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Vending_Machine.Models;
+using Vending_Machine.Data;
 
-namespace Vending_Machine.Data
+namespace Vending_Machine.Models
 {
     public class VendingMachine : IVendingMachine
     {
@@ -24,15 +24,22 @@ namespace Vending_Machine.Data
 
         public Product RequestProduct(int productNumber)
         {
-            int productArrayId = 0;
-            for (int i = 0; i < productArray.Length; i++)
+            if (productNumber <= productArray.Length && productNumber > 0)
             {
-                if (productArray[i].ProductId == productNumber)
+                if (GetBalance() > productArray[productNumber - 1].Price)
                 {
-                    productArrayId = i;
+                    depositPool = UpdateDepositPool.ArrangeDepositPool((depositPool.Sum() - productArray[productNumber - 1].Price), accaptableDenominations);
+                    return productArray[productNumber - 1];
+                }
+                else
+                {
+                    throw new ArgumentException("You can´t afford this product");
                 }
             }
-            return productArray[productArrayId];
+            else
+            {
+                throw new IndexOutOfRangeException("The product you have selected does not exist");
+            }
         }
 
         public int[] EndSession()
@@ -41,21 +48,21 @@ namespace Vending_Machine.Data
 
             int[] emptydepositPool = new int[0];
             depositPool = emptydepositPool;
+            IdSequencer.Reset();
 
             return changeToCustomer;
         }
 
         public string GetDescription(int productNumber)
         {
-            string productInformation = "";
-            foreach (var product in productArray)
+            if (productNumber <= productArray.Length && productNumber > 0)
             {
-                if (product.ProductId == productNumber)
-                {
-                    productInformation = product.ShowInfo();
-                }
+                return productArray[productNumber - 1].ShowInfo();
             }
-            return productInformation;
+            else
+            {
+                throw new IndexOutOfRangeException("The product you have selected does not exist");
+            }
         }
 
         public int GetBalance()

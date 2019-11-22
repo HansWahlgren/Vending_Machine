@@ -2,11 +2,10 @@
 {
     public class Peanuts : Snack
     {
-        public Peanuts(int productId)
+        public Peanuts(int productId) : base(productId)
         {
-            base.ProductId = productId;
             base.Name = "Peanuts bag";
-            base.price = 35;
+            base.Price = 35;
             base.bagSize = "200g";
             base.calories = 500;
             base.warning = "Contains Peanuts";

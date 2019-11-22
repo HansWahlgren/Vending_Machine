@@ -2,11 +2,10 @@
 {
     public class Juice : Drink
     {
-        public Juice(int productId)
+        public Juice(int productId) : base(productId)
         {
-            base.ProductId = productId;
             base.Name = "Juice";
-            base.price = 20;
+            base.Price = 20;
             base.bottleSize = "25cl";
             base.calories = 150;
             base.warning = "Contains fruit meat";

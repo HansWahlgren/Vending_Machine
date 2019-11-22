@@ -4,14 +4,14 @@
     {
         protected string foodSize;
 
-        //public Food() : base()
-        //{
-        //    foodSize = "0 g";
-        //}
+        public Food(int productId)
+        {
+            base.ProductId = productId;
+        }
 
         public override string ShowInfo()
         {
-            return ($"Product Nr: {ProductId.ToString()}\n{Name}\nPrice: {price.ToString()}kr\nSize: {foodSize}" +
+            return ($"Product Nr: {ProductId.ToString()}\n{Name}\nPrice: {Price.ToString()}kr\nSize: {foodSize}" +
                 $"\nCalories: {calories.ToString()}\n{warning}");
         }
 

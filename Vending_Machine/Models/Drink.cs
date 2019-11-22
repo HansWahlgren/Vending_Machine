@@ -4,14 +4,14 @@
     {
         protected string bottleSize;
 
-        //public Drink() : base()
-        //{
-        //    bottleSize = "0 ml";
-        //}
+        public Drink(int productId)
+        {
+            base.ProductId = productId;
+        }
 
         public override string ShowInfo()
         {
-            return ($"Product Nr: {ProductId.ToString()}\n{Name}\nPrice: {price.ToString()}kr\nSize: {bottleSize}" +
+            return ($"Product Nr: {ProductId.ToString()}\n{Name}\nPrice: {Price.ToString()}kr\nSize: {bottleSize}" +
                 $"\nCalories: {calories.ToString()}\n{warning}");
         }
 

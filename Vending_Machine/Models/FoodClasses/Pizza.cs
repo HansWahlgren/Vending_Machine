@@ -2,11 +2,10 @@
 {
     public class Pizza : Food
     {
-        public Pizza(int productId)
+        public Pizza(int productId) : base(productId)
         {
-            base.ProductId = productId;
             base.Name = "Pizza";
-            base.price = 35;
+            base.Price = 35;
             base.foodSize = "70g";
             base.calories = 450;
             base.warning = "Contains meat, Gluten";

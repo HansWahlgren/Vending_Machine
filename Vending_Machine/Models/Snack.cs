@@ -3,14 +3,15 @@
     public class Snack : Product
     {
         protected string bagSize;
-        //public Snack() : base()
-        //{
-        //    bagSize = "0 g";
-        //}
+
+        public Snack(int productId)
+        {
+            base.ProductId = productId;
+        }
 
         public override string ShowInfo()
         {
-            return ($"Product Nr: {ProductId.ToString()}\n{Name}\nPrice: {price.ToString()}kr\nSize: {bagSize}" +
+            return ($"Product Nr: {ProductId.ToString()}\n{Name}\nPrice: {Price.ToString()}kr\nSize: {bagSize}" +
                 $"\nCalories: {calories.ToString()}\n{warning}");
         }
 

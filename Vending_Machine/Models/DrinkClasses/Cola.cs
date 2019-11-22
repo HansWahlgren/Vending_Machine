@@ -2,11 +2,10 @@
 {
     public class Cola : Drink
     {
-        public Cola(int productId)
+        public Cola(int productId) : base(productId)
         {
-            base.ProductId = productId;
             base.Name = "Coca Cola";
-            base.price = 22;
+            base.Price = 22;
             base.bottleSize = "50cl";
             base.calories = 400;
             base.warning = "Contains carbonic acid";
