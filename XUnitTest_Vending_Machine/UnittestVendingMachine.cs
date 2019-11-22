@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
+﻿using System.Linq;
 using Xunit;
 using Vending_Machine.Models;
 using Vending_Machine.Data;
-using Vending_Machine.Models.DrinkClasses;
-using Vending_Machine.Models.FoodClasses;
-using Vending_Machine.Models.SnackClasses;
 
 namespace XUnitTest_Vending_Machine
 {
@@ -16,6 +10,8 @@ namespace XUnitTest_Vending_Machine
         [Fact]
         public void AddCurrencyandGetBalanceOk()
         {
+            VendingMachine testVendingMachine = new VendingMachine();
+
             //Arrange
             int firstdenomination = 1000;
             int seconddenomination = 500;
@@ -35,7 +31,7 @@ namespace XUnitTest_Vending_Machine
             VendingMachine.AddCurrency(forthdenomination);
             VendingMachine.AddCurrency(fifthdenomination);
             VendingMachine.AddCurrency(sixthdenomination);
-            int moneyPoolAmount = VendingMachine.GetBalance();
+            int moneyPoolAmount = testVendingMachine.GetBalance();
 
             //Assert
             Assert.Equal(expectedAmount, moneyPoolAmount);

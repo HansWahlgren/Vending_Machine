@@ -4,10 +4,10 @@
     {
         protected string foodSize;
 
-        public Food() : base()
-        {
-            foodSize = "0 g";
-        }
+        //public Food() : base()
+        //{
+        //    foodSize = "0 g";
+        //}
 
         public override string ShowInfo()
         {

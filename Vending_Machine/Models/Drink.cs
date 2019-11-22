@@ -4,10 +4,10 @@
     {
         protected string bottleSize;
 
-        public Drink() : base()
-        {
-            bottleSize = "0 ml";
-        }
+        //public Drink() : base()
+        //{
+        //    bottleSize = "0 ml";
+        //}
 
         public override string ShowInfo()
         {

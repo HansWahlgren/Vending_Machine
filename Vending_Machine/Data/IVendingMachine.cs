@@ -1,35 +1,19 @@
 ﻿using Vending_Machine.Models;
-using Vending_Machine.Models.DrinkClasses;
-using System.Linq;
 
 namespace Vending_Machine.Data
 {
     interface IVendingMachine
     {
-        public void AddCurrency(int denominationAmount) {   }
+        void AddCurrency(int denominationAmount);
 
-        public object RequestProduct(int productNumber)
-        {
-            return new object();
-        }
+        Product RequestProduct(int productNumber);
 
-        public int[] EndSession() 
-        {
-            return new int[] { };
-        }
-        public static string GetDescription(int productNumber)
-        {
-            return "";
-        }
+        int[] EndSession();
 
-        public static int GetBalance()
-        {
-            return new int();
-        }
+        string GetDescription(int productNumber);
 
-        public static string[] GetProducts() 
-        {
-            return new string[] { };
-        }
+        int GetBalance();
+
+        string[] GetProducts();
     }
 }

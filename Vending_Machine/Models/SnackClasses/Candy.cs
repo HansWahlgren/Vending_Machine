@@ -2,7 +2,7 @@
 {
     public class Candy : Snack
     {
-        public Candy(int productId) : base()
+        public Candy(int productId)
         {
             base.ProductId = productId;
             base.Name = "Mixed Candy bag";

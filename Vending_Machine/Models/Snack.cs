@@ -3,10 +3,10 @@
     public class Snack : Product
     {
         protected string bagSize;
-        public Snack() : base()
-        {
-            bagSize = "0 g";
-        }
+        //public Snack() : base()
+        //{
+        //    bagSize = "0 g";
+        //}
 
         public override string ShowInfo()
         {

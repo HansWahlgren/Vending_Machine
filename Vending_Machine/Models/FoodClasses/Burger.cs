@@ -2,7 +2,7 @@
 {
     public class Burger : Food
     {
-        public Burger(int productId) : base()
+        public Burger(int productId)
         {
             base.ProductId = productId;
             base.Name = "Hamburger";

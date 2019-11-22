@@ -2,7 +2,7 @@
 {
     public class Chips : Snack
     {
-        public Chips(int productId) : base()
+        public Chips(int productId)
         {
             base.ProductId = productId;
             base.Name = "Chips bag";

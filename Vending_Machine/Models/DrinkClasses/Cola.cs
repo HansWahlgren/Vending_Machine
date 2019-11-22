@@ -2,7 +2,7 @@
 {
     public class Cola : Drink
     {
-        public Cola(int productId) : base()
+        public Cola(int productId)
         {
             base.ProductId = productId;
             base.Name = "Coca Cola";

@@ -9,6 +9,7 @@ namespace XUnitTest_Vending_Machine
         public void ArrangeDepositPoolOk()
         {
             //Arrange
+            int[] accaptableDenominations = { 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1 };
             int moneyPool1 = 793;
             int moneyPool2 = 1680;
             int moneyPool3 = 3888;
@@ -18,10 +19,10 @@ namespace XUnitTest_Vending_Machine
             int[] expectedArray3 = { 1000, 1000, 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1 };
 
             //Act
-            int[] depositPoolArray1 = UpdateDepositPool.ArrangeDepositPool(moneyPool1);
-            int[] depositPoolArray2 = UpdateDepositPool.ArrangeDepositPool(moneyPool2);
-            int[] depositPoolArray3 = UpdateDepositPool.ArrangeDepositPool(moneyPool3);
-            int[] depositPoolArray4 = UpdateDepositPool.ArrangeDepositPool(moneyPool4);
+            int[] depositPoolArray1 = UpdateDepositPool.ArrangeDepositPool(moneyPool1, accaptableDenominations);
+            int[] depositPoolArray2 = UpdateDepositPool.ArrangeDepositPool(moneyPool2, accaptableDenominations);
+            int[] depositPoolArray3 = UpdateDepositPool.ArrangeDepositPool(moneyPool3, accaptableDenominations);
+            int[] depositPoolArray4 = UpdateDepositPool.ArrangeDepositPool(moneyPool4, accaptableDenominations);
 
             //Assert
             Assert.Equal(expectedArray1, depositPoolArray1);

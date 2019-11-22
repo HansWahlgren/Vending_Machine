@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 using Vending_Machine.Models;
-using Vending_Machine.Data;
-using Vending_Machine.Models.DrinkClasses;
-using Vending_Machine.Models.FoodClasses;
-using Vending_Machine.Models.SnackClasses;
 
 namespace Vending_Machine.Data
 {
@@ -14,13 +9,20 @@ namespace Vending_Machine.Data
     {
         private static readonly Product[] productArray = CreateProducts.CreateProductArray();
         private static int[] depositPool = new int[0];
+        private static readonly int[] accaptableDenominations = { 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1 };
 
-        public static void AddCurrency(int denominationAmount)
+        public void AddCurrency(int denominationAmount)
         {
-            depositPool = UpdateDepositPool.ArrangeDepositPool(depositPool.Sum() + denominationAmount);
+            foreach (var denominationValue in accaptableDenominations)
+            {
+                if (denominationAmount == denominationValue)
+                {
+                    depositPool = UpdateDepositPool.ArrangeDepositPool((depositPool.Sum() + denominationAmount), accaptableDenominations);
+                }
+            }
         }
 
-        public static Product RequestProduct(int productNumber)
+        public Product RequestProduct(int productNumber)
         {
             int productArrayId = 0;
             for (int i = 0; i < productArray.Length; i++)
@@ -31,10 +33,9 @@ namespace Vending_Machine.Data
                 }
             }
             return productArray[productArrayId];
-            //return productArray[productNumber-1];
         }
 
-        public static int[] EndSession()
+        public int[] EndSession()
         {
             int[] changeToCustomer = depositPool;
 
@@ -44,7 +45,7 @@ namespace Vending_Machine.Data
             return changeToCustomer;
         }
 
-        public static string GetDescription(int productNumber)
+        public string GetDescription(int productNumber)
         {
             string productInformation = "";
             foreach (var product in productArray)
@@ -57,12 +58,12 @@ namespace Vending_Machine.Data
             return productInformation;
         }
 
-        public static int GetBalance()
+        public int GetBalance()
         {
             return depositPool.Sum();
         }
 
-        public static string[] GetProducts()
+        public string[] GetProducts()
         {
             List<String> productsNameList = new List<String>();
             foreach (var product in productArray)
