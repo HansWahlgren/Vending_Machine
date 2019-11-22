@@ -10,7 +10,7 @@ namespace Vending_Machine.Data
     {
         public static Product[] CreateProductArray()
         {
-            List<Product> productList = new List<Product>
+            Product[] productArray = new Product[]
             {
                 new Cola(IdSequencer.NextProductId()),
                 new Juice(IdSequencer.NextProductId()),
@@ -36,7 +36,8 @@ namespace Vending_Machine.Data
             //    productList.Add(new item(IdSequencer.NextProductId()));
             //}
 
-            Product[] productArray = productList.ToArray();
+            //Product[] productArray = productList.ToArray();
+
             return productArray;
         }
     }

@@ -13,11 +13,16 @@ namespace Vending_Machine.Models
 
         public void AddCurrency(int denominationAmount)
         {
-            foreach (var denominationValue in accaptableDenominations)
+            for (int i = 0; i < accaptableDenominations.Length; i++)
             {
-                if (denominationAmount == denominationValue)
+                if (denominationAmount == accaptableDenominations[i])
                 {
                     depositPool = UpdateDepositPool.ArrangeDepositPool((depositPool.Sum() + denominationAmount), accaptableDenominations);
+                    break;
+                }
+                else if(i+1 == accaptableDenominations.Length)
+                {
+                    throw new IndexOutOfRangeException("Not an acceptable denomination");
                 }
             }
         }
@@ -75,7 +80,7 @@ namespace Vending_Machine.Models
             List<String> productsNameList = new List<String>();
             foreach (var product in productArray)
             {
-                productsNameList.Add($"Number: {product.ProductId} {product.Name}\n");
+                productsNameList.Add($"Number: {product.ProductId} {product.Name}");
             }
             string[] productsName = productsNameList.ToArray();
 

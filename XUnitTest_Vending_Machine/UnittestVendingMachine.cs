@@ -193,15 +193,15 @@ namespace XUnitTest_Vending_Machine
             VendingMachine vendingMachine = new VendingMachine();
             string[] expectedproductsName = 
             {
-                "Number: 1 Coca Cola\n",
-                "Number: 2 Juice\n",
-                "Number: 3 Water\n",
-                "Number: 4 Hamburger\n",
-                "Number: 5 Pizza\n",
-                "Number: 6 Sandwich\n",
-                "Number: 7 Mixed Candy bag\n",
-                "Number: 8 Chips bag\n",
-                "Number: 9 Peanuts bag\n",
+                "Number: 1 Coca Cola",
+                "Number: 2 Juice",
+                "Number: 3 Water",
+                "Number: 4 Hamburger",
+                "Number: 5 Pizza",
+                "Number: 6 Sandwich",
+                "Number: 7 Mixed Candy bag",
+                "Number: 8 Chips bag",
+                "Number: 9 Peanuts bag",
             };
 
             //Act
