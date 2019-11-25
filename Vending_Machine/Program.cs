@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Linq;
 using System.Collections.Generic;
 using Vending_Machine.Data;
 using Vending_Machine.Models;
@@ -12,7 +13,7 @@ namespace Vending_Machine
     class Program
     {
         private static readonly VendingMachine vendingMachine = new VendingMachine();
-        private static List<Product> boughtProduct = new List<Product>();
+        private static readonly List<Product> boughtProducts = new List<Product>();
         private static int moneyPool = 0;
         
         static void Main(string[] args)
@@ -24,59 +25,78 @@ namespace Vending_Machine
                 Console.Clear();
                 Console.WriteLine("\n\tPress: 1 to put in money\n\tPress: 2 to sort by type\n\tPress: 3 to get more details about a product\n" +
                     "\tPress: 4 to buy a product\n\tPress: 5 to use your bought products\n\tPress: 0 to exit the vending machine\n");
-                Console.WriteLine($"\tMoneypool: {moneyPool}\n\n\tAvailable products:");
+                Console.WriteLine($"\tBought products: {boughtProducts.Count}\n\tMoneypool: {moneyPool}\n\n\tAvailable products:");
                 foreach (var product in vendingMachine.GetProducts())
                 {
-                    Console.WriteLine("\t" + product);
+                    Console.WriteLine($"\t{product}");
                 }
 
-                ConsoleKey userInput = Console.ReadKey(true).Key;
-                switch (userInput)
+                try
                 {
-                    case ConsoleKey.D1:
-                        AddCurrency();
-                        moneyPool = vendingMachine.GetBalance();
-                        break;
-                    case ConsoleKey.D2:
-                        //Sort by type
-                        break;
-                    case ConsoleKey.D3:
-                        //More details about product
-                        break;
-                    case ConsoleKey.D4:
-                       //Buy product
-                        break;
-                    case ConsoleKey.D5:
-                        //use bought product
-                        break;
-                    case ConsoleKey.D0:
-                        //Exit Vending machine
-                        break;
-                    default:
+                    ConsoleKey userInput = Console.ReadKey(true).Key;
+                    switch (userInput)
+                    {
+                        case ConsoleKey.D1:
+                            AddCurrency();
+                            moneyPool = vendingMachine.GetBalance();
+                            break;
+                        case ConsoleKey.D2:
+                            SortByType.SortByProductType(vendingMachine);
+                            break;
+                        case ConsoleKey.D3:
+                            ShowProductDescription.ShowDescription(vendingMachine);
+                            break;
+                        case ConsoleKey.D4:
+                            GetProduct.RequestProduct(vendingMachine, boughtProducts);
+                            moneyPool = vendingMachine.GetBalance();
+                            break;
+                        case ConsoleKey.D5:
+                            GetProduct.UseProduct(vendingMachine, boughtProducts);
+                            break;
+                        case ConsoleKey.D0:
+                            ExitVendingMachine();
+                            Environment.Exit(0);
+                            break;
+                        default:
                         
-                        break;
+                            break;
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("\n\tThe machine can only read numbers");
+                    System.Threading.Thread.Sleep(1500);
                 }
             }
         }
 
         static void AddCurrency()
         {
-            Console.WriteLine("\tPut in a denomination into the machine");
+            Console.WriteLine("\n\tPut in a denomination into the machine");
             try
             {
-                int userCurrency = int.Parse(Console.ReadLine());
-                vendingMachine.AddCurrency(userCurrency);
+                vendingMachine.AddCurrency(int.Parse(Console.ReadLine()));
             }
             catch (IndexOutOfRangeException exception)
             {
-                Console.WriteLine("\t" + exception.Message);
+                Console.WriteLine($"\t{exception.Message}");
                 System.Threading.Thread.Sleep(1500);
             }
-            catch
+        }
+
+        static void ExitVendingMachine()
+        {
+            int[] changeBack = vendingMachine.EndSession();
+            Console.Clear();
+            Console.Write("\n\tYou exit the vending machine\n\tThe change you receive back are: ");
+            foreach (var change in changeBack)
             {
-                Console.WriteLine("\tThe machine can only read numbers");
-                System.Threading.Thread.Sleep(1500);
+                Console.Write($"{change}kr ");
             }
+            Console.WriteLine($"\n\tFor a total amount of {changeBack.Sum()}kr");
+
+            System.Threading.Thread.Sleep(4000);
+            Environment.Exit(0);
         }
     }
 }

@@ -11,8 +11,8 @@
 
         public override string ShowInfo()
         {
-            return ($"Product Nr: {ProductId.ToString()}\n{Name}\nPrice: {Price.ToString()}kr\nSize: {bottleSize}" +
-                $"\nCalories: {calories.ToString()}\n{warning}");
+            return ($"\tProduct Nr: {ProductId.ToString()}\n\t{Name}\n\tPrice: {Price.ToString()}kr\n\tSize: {bottleSize}" +
+                $"\n\tCalories: {calories.ToString()}\n\t{warning}");
         }
 
         public override string Consume()

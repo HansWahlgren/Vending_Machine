@@ -44,7 +44,7 @@ namespace XUnitTest_Vending_Machine
             vendingMachine.AddCurrency(1000);
             string expectedName1 = "Sandwich";
             string expectedName2 = "Chips bag";
-            string expectedInfo = "Product Nr: 2\nJuice\nPrice: 20kr\nSize: 25cl\nCalories: 150\nContains fruit meat";
+            string expectedInfo = "\tProduct Nr: 2\n\tJuice\n\tPrice: 20kr\n\tSize: 25cl\n\tCalories: 150\n\tContains fruit meat";
             int expectedMoneyLeft = 925;
 
             //Act
@@ -149,9 +149,9 @@ namespace XUnitTest_Vending_Machine
         {
             //Arrange
             VendingMachine vendingMachine = new VendingMachine();
-            string expectedInfo1 = "Product Nr: 2\nJuice\nPrice: 20kr\nSize: 25cl\nCalories: 150\nContains fruit meat";
-            string expectedInfo2 = "Product Nr: 5\nPizza\nPrice: 35kr\nSize: 70g\nCalories: 450\nContains meat, Gluten";
-            string expectedInfo3 = "Product Nr: 8\nChips bag\nPrice: 25kr\nSize: 100g\nCalories: 600\n";
+            string expectedInfo1 = "\tProduct Nr: 2\n\tJuice\n\tPrice: 20kr\n\tSize: 25cl\n\tCalories: 150\n\tContains fruit meat";
+            string expectedInfo2 = "\tProduct Nr: 5\n\tPizza\n\tPrice: 35kr\n\tSize: 70g\n\tCalories: 450\n\tContains meat, Gluten";
+            string expectedInfo3 = "\tProduct Nr: 8\n\tChips bag\n\tPrice: 25kr\n\tSize: 100g\n\tCalories: 600\n\t";
 
             //Act
             string productInformation1 = vendingMachine.GetDescription(2);

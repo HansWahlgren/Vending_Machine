@@ -40,9 +40,9 @@ namespace XUnitTest_Vending_Machine
             Juice product1 = new Juice(id1);
             Pizza product2 = new Pizza(id2);
             Chips product3 = new Chips(id3);
-            string expectedInfo1 = $"Product Nr: {id1}\nJuice\nPrice: 20kr\nSize: 25cl\nCalories: 150\nContains fruit meat";
-            string expectedInfo2 = $"Product Nr: {id2}\nPizza\nPrice: 35kr\nSize: 70g\nCalories: 450\nContains meat, Gluten";
-            string expectedInfo3 = $"Product Nr: {id3}\nChips bag\nPrice: 25kr\nSize: 100g\nCalories: 600\n";
+            string expectedInfo1 = $"\tProduct Nr: {id1}\n\tJuice\n\tPrice: 20kr\n\tSize: 25cl\n\tCalories: 150\n\tContains fruit meat";
+            string expectedInfo2 = $"\tProduct Nr: {id2}\n\tPizza\n\tPrice: 35kr\n\tSize: 70g\n\tCalories: 450\n\tContains meat, Gluten";
+            string expectedInfo3 = $"\tProduct Nr: {id3}\n\tChips bag\n\tPrice: 25kr\n\tSize: 100g\n\tCalories: 600\n\t";
 
             //Act
             string juiceInformation = product1.ShowInfo();

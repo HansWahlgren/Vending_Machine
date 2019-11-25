@@ -15,9 +15,9 @@ namespace XUnitTest_Vending_Machine
 
             //Act
             productArray = CreateProducts.CreateProductArray();
-            string expectedInfo1 = $"Product Nr: {productArray[1].ProductId}\nJuice\nPrice: 20kr\nSize: 25cl\nCalories: 150\nContains fruit meat";
-            string expectedInfo2 = $"Product Nr: {productArray[4].ProductId}\nPizza\nPrice: 35kr\nSize: 70g\nCalories: 450\nContains meat, Gluten";
-            string expectedInfo3 = $"Product Nr: {productArray[7].ProductId}\nChips bag\nPrice: 25kr\nSize: 100g\nCalories: 600\n";
+            string expectedInfo1 = $"\tProduct Nr: {productArray[1].ProductId}\n\tJuice\n\tPrice: 20kr\n\tSize: 25cl\n\tCalories: 150\n\tContains fruit meat";
+            string expectedInfo2 = $"\tProduct Nr: {productArray[4].ProductId}\n\tPizza\n\tPrice: 35kr\n\tSize: 70g\n\tCalories: 450\n\tContains meat, Gluten";
+            string expectedInfo3 = $"\tProduct Nr: {productArray[7].ProductId}\n\tChips bag\n\tPrice: 25kr\n\tSize: 100g\n\tCalories: 600\n\t";
             string juiceInformation = productArray[1].ShowInfo();
             string pizzaInformation = productArray[4].ShowInfo();
             string chipsInformation = productArray[7].ShowInfo();
