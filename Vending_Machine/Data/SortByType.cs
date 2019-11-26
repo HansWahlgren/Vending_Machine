@@ -7,7 +7,6 @@ namespace Vending_Machine.Data
     {
         public static void SortByProductType(VendingMachine vendingMachine)
         {
-            var allProducts = vendingMachine.GetProductsArray();
             bool keepAlive = true;
 
             while (keepAlive)
@@ -19,7 +18,7 @@ namespace Vending_Machine.Data
                 {
                     case ConsoleKey.D1:
                         Console.Clear();
-                        foreach (var product in allProducts)
+                        foreach (var product in vendingMachine.productArray)
                         {
                             if (product is Drink)
                             {
@@ -32,7 +31,7 @@ namespace Vending_Machine.Data
 
                     case ConsoleKey.D2:
                         Console.Clear();
-                        foreach (var product in allProducts)
+                        foreach (var product in vendingMachine.productArray)
                         {
                             if (product is Food)
                             {
@@ -45,7 +44,7 @@ namespace Vending_Machine.Data
 
                     case ConsoleKey.D3:
                         Console.Clear();
-                        foreach (var product in allProducts)
+                        foreach (var product in vendingMachine.productArray)
                         {
                             if (product is Snack)
                             {

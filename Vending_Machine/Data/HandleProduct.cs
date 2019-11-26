@@ -27,6 +27,7 @@ namespace Vending_Machine.Data
 
         public static void UseProduct(List<Product> boughtProducts)
         {
+            
             Console.Clear();
             if (boughtProducts.Count > 0)
             {

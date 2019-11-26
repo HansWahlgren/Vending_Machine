@@ -15,7 +15,7 @@ namespace Vending_Machine
         static void Main(string[] args)
         {
             bool keepAlive = true;
-
+            
             while(keepAlive)
             {
                 Console.Clear();

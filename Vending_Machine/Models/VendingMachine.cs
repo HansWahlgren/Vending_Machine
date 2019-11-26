@@ -7,9 +7,9 @@ namespace Vending_Machine.Models
 {
     public class VendingMachine : IVendingMachine
     {
-        private static readonly Product[] productArray = CreateProducts.CreateProductArray();
-        private static int[] depositPool = new int[0];
-        private static readonly int[] accaptableDenominations = { 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1 };
+        public readonly Product[] productArray = CreateProducts.CreateProductArray();
+        private int[] depositPool = new int[0];
+        private readonly int[] accaptableDenominations = { 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1 };
 
         public void AddCurrency(int denominationAmount)
         {
@@ -85,11 +85,6 @@ namespace Vending_Machine.Models
             string[] productsName = productsNameList.ToArray();
 
             return productsName;
-        }
-
-        public Product[] GetProductsArray()
-        {
-            return productArray;
         }
     }
 }
