@@ -86,5 +86,10 @@ namespace Vending_Machine.Models
 
             return productsName;
         }
+
+        public Product[] GetProductsArray()
+        {
+            return productArray;
+        }
     }
 }

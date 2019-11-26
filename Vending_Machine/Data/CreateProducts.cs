@@ -10,9 +10,10 @@ namespace Vending_Machine.Data
     {
         public static Product[] CreateProductArray()
         {
+            Product cola = new Cola(IdSequencer.NextProductId());
             Product[] productArray = new Product[]
             {
-                new Cola(IdSequencer.NextProductId()),
+                cola,
                 new Juice(IdSequencer.NextProductId()),
                 new Water(IdSequencer.NextProductId()),
 

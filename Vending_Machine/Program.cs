@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Text;
 using System.Linq;
 using System.Collections.Generic;
 using Vending_Machine.Data;
 using Vending_Machine.Models;
-using Vending_Machine.Models.DrinkClasses;
-using Vending_Machine.Models.FoodClasses;
-using Vending_Machine.Models.SnackClasses;
 
 namespace Vending_Machine
 {
@@ -25,7 +21,7 @@ namespace Vending_Machine
                 Console.Clear();
                 Console.WriteLine("\n\tPress: 1 to put in money\n\tPress: 2 to sort by type\n\tPress: 3 to get more details about a product\n" +
                     "\tPress: 4 to buy a product\n\tPress: 5 to use your bought products\n\tPress: 0 to exit the vending machine\n");
-                Console.WriteLine($"\tBought products: {boughtProducts.Count}\n\tMoneypool: {moneyPool}\n\n\tAvailable products:");
+                Console.WriteLine($"\tBought products: {boughtProducts.Count}\n\n\tMoneypool: {moneyPool}\n\n\tAvailable products:");
                 foreach (var product in vendingMachine.GetProducts())
                 {
                     Console.WriteLine($"\t{product}");
@@ -47,11 +43,11 @@ namespace Vending_Machine
                             ShowProductDescription.ShowDescription(vendingMachine);
                             break;
                         case ConsoleKey.D4:
-                            GetProduct.RequestProduct(vendingMachine, boughtProducts);
+                            HandleProduct.RequestProduct(vendingMachine, boughtProducts);
                             moneyPool = vendingMachine.GetBalance();
                             break;
                         case ConsoleKey.D5:
-                            GetProduct.UseProduct(vendingMachine, boughtProducts);
+                            HandleProduct.UseProduct(boughtProducts);
                             break;
                         case ConsoleKey.D0:
                             ExitVendingMachine();

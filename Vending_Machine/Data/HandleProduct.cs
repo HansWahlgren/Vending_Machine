@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Vending_Machine.Models;
 
 namespace Vending_Machine.Data
 {
-    public class GetProduct
+    public class HandleProduct
     {
         public static void RequestProduct(VendingMachine vendingMachine, List<Product> boughtProducts)
         {
@@ -26,7 +25,7 @@ namespace Vending_Machine.Data
             }
         }
 
-        public static void UseProduct(VendingMachine vendingMachine, List<Product> boughtProducts)
+        public static void UseProduct(List<Product> boughtProducts)
         {
             Console.Clear();
             if (boughtProducts.Count > 0)
@@ -47,13 +46,11 @@ namespace Vending_Machine.Data
                     {
                         Console.WriteLine($"\n\t{boughtProducts[i].Consume()}");
                         boughtProducts.RemoveAt(i);
-                        //Remove and return
                         break;
                     }
                     else if (i + 1 == boughtProducts.Count)
                     {
                         Console.WriteLine("\n\tYou have not bought the product with that id");
-                        //Return error
                     }
                 }
             }
@@ -61,7 +58,6 @@ namespace Vending_Machine.Data
             else
             {
                 Console.WriteLine("\n\tYou have not bought any products yet");
-                //Return error
             }
             System.Threading.Thread.Sleep(2000);
         }

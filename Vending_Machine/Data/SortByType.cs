@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Vending_Machine.Models;
 
 namespace Vending_Machine.Data
@@ -9,45 +7,53 @@ namespace Vending_Machine.Data
     {
         public static void SortByProductType(VendingMachine vendingMachine)
         {
-            Console.Clear();
-            Console.WriteLine("\n\tSort by:\n\t1: Drinks\n\t2: Food\n\t3: Snacks\n\t0: to exit");
-            var allProducts = vendingMachine.GetProducts();
-
+            var allProducts = vendingMachine.GetProductsArray();
             bool keepAlive = true;
 
             while (keepAlive)
             {
+                Console.Clear();
+                Console.WriteLine("\n\tSort by:\n\t1: Drinks\n\t2: Food\n\t3: Snacks\n\t0: to exit\n");
                 ConsoleKey userInput = Console.ReadKey(true).Key;
                 switch (userInput)
                 {
                     case ConsoleKey.D1:
+                        Console.Clear();
                         foreach (var product in allProducts)
                         {
                             if (product is Drink)
                             {
-                                Console.WriteLine("Drink");
+                                Console.WriteLine($"\n{product.ShowInfo()}");
                             }
                         }
+                        Console.WriteLine("\n\tPress anything to return previous screen");
+                        Console.ReadKey(true);
                         break;
 
                     case ConsoleKey.D2:
+                        Console.Clear();
                         foreach (var product in allProducts)
                         {
                             if (product is Food)
                             {
-                                Console.WriteLine("Food");
+                                Console.WriteLine($"\n{product.ShowInfo()}");
                             }
                         }
+                        Console.WriteLine("\n\tPress anything to return previous screen");
+                        Console.ReadKey(true);
                         break;
 
                     case ConsoleKey.D3:
+                        Console.Clear();
                         foreach (var product in allProducts)
                         {
                             if (product is Snack)
                             {
-                                Console.WriteLine("Snack");
+                                Console.WriteLine($"\n{product.ShowInfo()}");
                             }
                         }
+                        Console.WriteLine("\n\tPress anything to return previous screen");
+                        Console.ReadKey(true);
                         break;
 
                     case ConsoleKey.D0:
@@ -55,7 +61,10 @@ namespace Vending_Machine.Data
                         break;
 
                     default:
-
+                        Console.Clear();
+                        Console.WriteLine("\n\tThat category does not exist");
+                        Console.WriteLine("\tPress anything to return previous screen");
+                        Console.ReadKey(true);
                         break;
                 }
             }
